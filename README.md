@@ -1,6 +1,8 @@
 # library-system
-A library system for a school that enables you to identify whether the book you want to borrow is in the library to save you the trouble of walking there when the book is actually not there
 
+
+This is the second project i have done using django
+'A library system' is a web app for a school that enables you to identify whether the book you want to borrow is in the library to save you the trouble of walking there when the book is actually not there
 
 Library system.
 
@@ -19,4 +21,6 @@ status: The web application is still under development to meet utmost optimisati
 
 database:
 data is stored on the postgres database system which is secure.
+
+
 
