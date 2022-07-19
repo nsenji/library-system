@@ -1,0 +1,30 @@
+{% include 'books/main.html' %}
+<br>
+<br>
+{% block content %}
+    {% if searched not in books %}
+        <h1 class="text-center">You searched for "{{ searched }}"</h1><br>
+        {% for book in books %}
+            <div class="card">
+                <div class="row">
+                    <div class="col col-xs-10 col-md-8 col-lg-4">
+                        <img src="{{book.image.url}}" width="100%" height="100%">
+                    </div>
+                    <div class="col ">
+                        <div class="card-body">
+                            <h2 class="text-warning"><a href="{% url 'books:borrow' book.id %}"> {{ book }} </a> <br></h2>
+                            <p class="text-responsive">{{ book.description }}</p> <br>
+                            <div class="float-right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown-divider"></div>
+        {% endfor %}
+    {% else %}
+        <h1>Unfortunately the book you have searched for is unavailable!</h1>
+    {% endif %}
+{% endblock content %}
+
+

@@ -1,0 +1,20 @@
+{% include 'books/hamburger.html' %}
+{% load static %}
+{% block page_header %}
+  <div class="container text-center">
+    <h1 class = "display-3 text-warning">Your Profile</h1>
+    <h2>{{ user }}</h2>
+  </div>
+
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="text-center">
+    <ul class="breadcrumb bg-light text-center ml-auto">
+      <li class="breadcrumb-item"><a href="{% url 'books:borrowed_book' %}">Borrowed Books</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'books:returned_book' %}">Returned Books</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'books:notifications' %}">Notifications</a></li>
+    </ul>
+  </nav>
+{% endblock page_header %}
+
+{% block content %}
+
+{%  endblock content %}

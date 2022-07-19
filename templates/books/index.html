@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link rel="stylesheet" href='{% static "css/menu.css" %}'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        a{
+            text-decoration: none;
+            color:orange;
+        }
+        h6{
+            font-size: 18px;
+            transition: all 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+   <header id="showcase">
+       <div class="showcase-container container">
+           <h1 class = "text_secondary" >The</h1>
+           <h1> Book</h1>
+           <h1>Library</h1>
+           <p>All your favorites in one place.</p>
+           <a href="{% url 'users:login' %}"class="btn">Login</a>
+           <h6><small>Hello!, Not yet registered?</small></h6>
+           <h6><small>Please get registered here:   <span class="text-warning"><a href="{% url 'users:register' %}">Register</a></span></small></h6>
+       </div>
+   </header>
+</body>
+</html>
