@@ -1,0 +1,6 @@
+{% include 'books/profile.html' %}
+<h1 class = "display-6 text-center">Borrowed Books</h1>
+    {% for book in issued_book %}
+        <p>{{book.book_name}}</p>
+    {% endfor %}
+

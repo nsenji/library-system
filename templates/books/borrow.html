@@ -1,0 +1,109 @@
+{% include 'books/hamburger.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link rel="stylesheet" href='{% static "css/menu.css" %}'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Titillium+Web:wght@600&display=swap" rel="stylesheet">
+    <title>BORROW</title>
+</head>
+
+{% block content %}
+<body class="mt-5" style="background-image: url('{% static "img/lib4.JPG" %}')"  no-repeat center center-cover;>
+    {% for b in books %}
+        <div class="container align-text-bottom">
+            <div class="media">
+                <div class="row">
+                    <div class="col col-xs-12 col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="{{b.image.url}}" alt="bookcover" class="img-responsive" />
+                        </div>
+                    </div>
+                    <div class="col col-xs-10 col-md-8">
+                        <div class="card-transparent">
+                            <div class="card-body">
+                                <p><u><h3 class="text-warning text-responsive"> {{ b }} </h3></u></p>
+                                <p class="text-white text-justify"> {{ b.description }} </p>
+                                <br>
+                                <br>
+                                <div>
+                                    <span class="font-weight-bold text-warning">Author:</span>
+                                    <i class="text-white"> {{ b.author }} </i>
+                                </div>
+                                <br>
+                                <div>
+                                    <span class="font-weight-bold text-warning">Genre:</span>
+                                    <i class="text-white"> {{ b.category }} </i>
+                                </div>
+                                <br>
+                                <p><u><h5 class="text-warning">Related books</h5></u></p>
+                                <ol class="text-white text-monospace">
+                                    {% for book in all_books %}
+                                        {% if book.category == b.category and book != b %}
+                                            <li>{{ book }}</li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ol>
+                                <br>
+                                {% if b.status %}
+                                    
+                                    <p> The book should be picked within 6 hours </p>
+                                    <p> Return date : {{ return_date }}</p>
+                                    <p class="text-warning"> Status : <span class="text-success">Available</span>  </p>
+                            
+                                    <a href="{% url 'books:confirm_borrow' b.id %}">{{ b }}
+                                        <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded">BORROW</button>
+                                    <!-- the button was put inside the href link , why!! -->
+                                    </a>
+                                {% else %}
+                                    <p class="text-warning"> Status : <span class="text-danger">Unavailable </span> </p>
+                                    <button class="btn mb-3 btn-outline-warning float-right btn-lg border rounded disabled" data-toggle="modal" data-target="#modalCenter" type="button">
+                                        BORROW
+                                    </button>
+                            
+                                    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title text-danger text-center" id="modalLongTitle">NOTICE!!</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>Unfortunately the book has been borrowed. You will have to wait till the the book is returned.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    
+<script src='{% static "https://code.jquery.com/jquery-3.3.1.slim.min.js"%}' integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src='{% static "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"%}' integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+crossorigin="anonymous"></script>
+<script src='{% static "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"%}' integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+crossorigin="anonymous"></script> 
+
+</body>
+</html>
+
+{% endblock content %}

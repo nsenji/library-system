@@ -1,0 +1,112 @@
+*{
+    padding:0;
+    margin:0;
+}
+:root{
+  --primary-color: rgba(4, 5, 5, 0.95);
+  --secondary-color: rgba(229, 148, 0 , 0.9);
+  --overlay-color: rgba(24, 39, 51 , 0.85);
+  --menu-speed: 0.75s;
+}
+body{
+    /*font-family:Verdana, Geneva, Tahoma, sans-serif;*/
+    font-family: 'Lobster', cursive;
+    font-family: 'Titillium Web', sans-serif;
+    line-height:1.4;
+    box-sizing:border-box;
+    font-size: 1.4rem;
+}
+.text_secondary{
+    color:var(--secondary-color);
+}
+.text_primary{
+    color:var(--primary-color);
+}
+
+.container{
+    max-width:960px;
+    margin:auto;
+    overflow:hidden;
+    padding:0 3rem;
+}
+#showcase{
+    /*background:var(--primary-color);*/
+    color:#fff;
+    height:100vh;
+    position:relative;
+}
+#showcase:before{
+    content:'';
+    background:url('../img/young-woman-reaching-book-library-2_0.jpg') no-repeat center center/cover;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    z-index:-1;
+}
+#showcase .showcase-container,
+#login_showcase .showcase-container{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    text-align: center;
+    z-index: 0;
+}
+#login_showcase:before{
+    content:'';
+    background:url('../img/books.avif') no-repeat center center/cover;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    z-index:-1;
+}
+#login_showcase{
+    color:#fff;
+    height:100vh;
+    position:relative;
+}
+
+#showcase h1{
+    font-size:4rem;
+}
+#showcase p{
+    line-height:1.4;
+}
+.btn{
+    text-decoration:none;
+    display:inline-block;
+    background:var(--secondary-color);
+    color:#fff;
+    padding:10px 20px;
+    transition: all 0.75s;
+    border-radius:5px;
+    margin-top: 10px;
+}
+.btn:hover{
+    color:var(--primary-color);
+    opacity:0.75;
+}
+.margin_3{
+    padding:30px;
+}
+.margin_2{
+    padding:20px;
+}
+.margin_1{
+    padding: 10px;
+}
+
+.py_3{
+    padding:30px;
+}
+.py_2{
+    padding:20px;
+}
+.py_1{
+    padding: 10px;
+}
