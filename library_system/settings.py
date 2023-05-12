@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-of_&pl6t*1*y+ncye9zo4ss+5wpq+)y27nnf%$f$%sc-bein@i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 
@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'users',
 
     #Third party apps
-    'crispy_forms',
 
     #Default Apps
     'django.contrib.admin',
@@ -86,15 +85,22 @@ WSGI_APPLICATION = 'library_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE':'django.db.backends.postgresql',
-        'NAME': 'victor6',
-        'USER': 'postgres',
-        'PASSWORD':'ilikedj48',
-        'HOST': 'localhost',
-        'PORT': '5432',
+# DATABASES = {
+#     'default': {
+#         'ENGINE':'django.db.backends.postgresql',
+#         'NAME': 'victor6',
+#         'USER': 'postgres',
+#         'PASSWORD':'ilikedj48',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
 
+#     }
+# }
+
+DATABASES = {
+    'default':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
     }
 }
 
@@ -146,7 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-CRISPY_TEMPLATE_PACK="bootstrap4"
+
 
 #My Settings
 LOGIN_URL = 'users:login'

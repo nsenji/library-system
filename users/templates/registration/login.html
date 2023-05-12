@@ -1,5 +1,4 @@
 {% load static %}
-{% load crispy_forms_tags %}
 
 <head>
   <meta charset="UTF-8">
@@ -28,7 +27,7 @@
     <div class="showcase-container container">
       <form class="form" method="POST" action="{% url 'users:login' %}">
         {% csrf_token %} 
-        {{ form|crispy }}
+        {{ form }}
         <p>Don't have an account? Create one <a href="{% url 'users:register' %}">here</a></p>
         <div class="text-center">
           <button name="submit" class="btn btn-warning">Log in</button>
