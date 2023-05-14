@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_c489d6780d2e4d54bc1de04a3fc46a5b }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_728a6060f992497195620991de45a0ac }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_a50b1c1c7dd5443c8bc24bac49cc891d }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_fd67c5612bab44e79888e238f3cfc0da }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_c489d6780d2e4d54bc1de04a3fc46a5b }}/ianwasukira/django-app:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a50b1c1c7dd5443c8bc24bac49cc891d }}/ianwasukira/django-app:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'librarySystem'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_dbec37e956fa426caf13b8bd46482082 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_c489d6780d2e4d54bc1de04a3fc46a5b }}/ianwasukira/django-app:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9d6e1ec13a7d4e2392501039aba7b943 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a50b1c1c7dd5443c8bc24bac49cc891d }}/ianwasukira/django-app:${{ github.sha }}'
