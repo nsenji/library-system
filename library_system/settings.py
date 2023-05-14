@@ -27,11 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', "librarysystem.azurewebsites.net"]
 
+
+
 CSRF_TRUSTED_ORIGINS = ['librarysystem.azurewebsites.net']
 
 CORS_ALLOWED_ORIGINS = ["librarysystem.azurewebsites.net"]
-
-
 # Application definition
 
 INSTALLED_APPS = [
