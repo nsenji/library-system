@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1154495c38e345a79f5f402921819ffa }}/ianwasukira/django-app:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1154495c38e345a79f5f402921819ffa }}/ianwasukira/django-app:sha256:1aef0969f548248bfb0e8199e1476b112e02d32ac6bd6c92011ca4b725a944aa
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'librarySystem'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_549c7f5bc2634b75801b8d9b69f60cfd }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1154495c38e345a79f5f402921819ffa }}/ianwasukira/django-app:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_1154495c38e345a79f5f402921819ffa }}/ianwasukira/django-app:sha256:1aef0969f548248bfb0e8199e1476b112e02d32ac6bd6c92011ca4b725a944aa'
